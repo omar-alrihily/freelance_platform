@@ -20,7 +20,7 @@ function InputForm() {
     event.preventDefault();
 
     if (isNaN(inputData.salary)) {
-      console.error('Salary must be a number');
+      console.error('Salary must be a numberr');
       return;
     }
 
