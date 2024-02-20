@@ -26,7 +26,7 @@ function InputForm() {
     }
 
     axios
-      .post('http://localhost:5000/inputs', inputData)
+      .post('https://saudi-freelance1.onrender.com/inputs', inputData)
       .then((response) => {
         console.log('Input created:', response.data);
         setInputData({

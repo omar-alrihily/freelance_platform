@@ -5,7 +5,7 @@ function InputList() {
   const [inputs, setInputs] = useState([]);
 
   const fetchData = () => {
-    axios.get('http://localhost:5000/inputs')
+    axios.get('https://saudi-freelance1.onrender.com/inputs')
       .then(response => {
         setInputs(response.data);
       })

@@ -13,7 +13,7 @@ const SearchComponent = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/inputs');
+      const response = await axios.get('https://saudi-freelance1.onrender.com/inputs');
       if (response.status === 200) {
         if (displayAllData) {
           setSearchResults(response.data);
@@ -32,7 +32,7 @@ const SearchComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/inputs');
+        const response = await axios.get('https://saudi-freelance1.onrender.com/inputs');
         if (response.status === 200 && displayAllData) {
           setSearchResults(response.data);
           setError('');
@@ -60,7 +60,7 @@ const SearchComponent = () => {
       if (!job && !city) {
         setDisplayAllData(true);
       } else {
-        const response = await axios.get(`http://localhost:5000/search?job=${job}&city=${city}`);
+        const response = await axios.get(`https://saudi-freelance1.onrender.com/search?job=${job}&city=${city}`);
         if (response.status === 200) {
           setSearchResults(response.data);
           setError('');
