@@ -112,6 +112,7 @@ app.delete('/inputs', async (req, res) => {
 */
 
 
+
 // Search inputs by job, city, or both (GET)
 app.get('/search', async (req, res) => {
   try {

@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Harmattan&family=Tajawal:wght@300;400;500;700&display=swap');
+
+
 .App {
   text-align: center;
 }
+
+body{
+  font-family: 'Tajawal';
+ 
+  
+}
+
 
 .App-logo {
   height: 40vmin;

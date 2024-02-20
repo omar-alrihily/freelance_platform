@@ -84,39 +84,46 @@ const SearchComponent = () => {
 
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-4 space-y-4  ">
+      
+      
     <input
       type="text"
-      placeholder="Enter job"
+      placeholder="اختر الوظيفة"
       value={job}
       onChange={(e) => setJob(e.target.value)}
-      className="p-2 border rounded"
+      className="p-2 border rounded  placeholder:text-slate-500 border-slate-700"
     />
     <input
       type="text"
-      placeholder="Enter city"
+      placeholder="اختر المدينة"
       value={city}
       onChange={(e) => setCity(e.target.value)}
-      className="p-2 border rounded"
+      className="p-2 border rounded mr-4 placeholder:text-slate-500 border-slate-700"
     />
+    
     {isLoading ? (
       <p className="text-gray-600">Loading...</p>
-    ) : (
+      
+    ) : ( 
       <button
         onClick={handleSearch}
         disabled={isLoading}
-        className="p-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+        className="p-2 bg-gray-400 text-white rounded hover:bg-gray-400 block mx-auto px-10 "
       >
-        Search
+        بحث
       </button>
+      
     )}
     {error && <p className="text-red-500">{error}</p>}
     {searchResults.length > 0 ? (
       <FreeLancers FreeLancer={searchResults} />
     ) : (
-      <p className="text-gray-600">No results found.</p>
+      <p className="text-gray-600">لم نحصل على النتيجة المطلوبة</p>
     )}
+    
 </div>
+
 
   
   );

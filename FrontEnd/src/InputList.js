@@ -26,7 +26,7 @@ function InputList() {
 
   return (
     <div>
-      <h2>Input List</h2>
+    
       <ul>
         {inputs.map(input => (
           <li key={input._id}>

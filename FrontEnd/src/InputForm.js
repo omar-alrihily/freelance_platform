@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { motion } from "framer-motion";
 
 function InputForm() {
   const [inputData, setInputData] = useState({
@@ -51,95 +52,117 @@ function InputForm() {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-semibold mb-4">Create Input</h2>
-
+    <div className='mt-10'> 
+      <h2 className="text-3xl font-semibold mb-4 text-cyan-700">سجل كمحترف</h2>
+      <p className='font-bold m-10 text-lg'>ابدأ رحلتك كمحترف مستقل من خلال المنصة التي تساعدك في الحصول على عملاء موثوقين في مدينتك </p>
       {/* Button to open the modal */}
       <button
         onClick={handleOpenModal}
-        className="p-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+        className="p-2 bg-gray-400 text-white rounded hover:bg-cyan-900 px-10 text-lg mb-10 "
       >
-        Show InputForm
+        انقر هنا
       </button>
 
       {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex items-center justify-center min-h-screen">
-            <div className="bg-white p-4 w-96 rounded shadow-md">
-              <h2 className="text-2xl font-semibold mb-4">Create Input</h2>
 
-              <form onSubmit={handleSubmit}>
-                {/* Input fields */}
-                {/* ... */}
-                <label className="block mb-2">
-            Name:
+      {showModal && (
+  <div>
+    {/* Grey overlay for the background */}
+    <div
+      className="fixed inset-0 bg-gray-800 bg-opacity-50 z-10"
+      onClick={handleCloseModal}
+    ></div>
+
+    {/* Modal content */}
+    <div className="fixed inset-0 z-20 overflow-y-auto flex items-center justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-center min-h-screen"
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.3 }}
+          className="bg-white p-4 w-96 rounded shadow-md"
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-cyan-700">بيانات المحترف</h2>
+
+          <form onSubmit={handleSubmit}>
+          <label className="block mb-2 ">
+            الإسم :
             <input
               type="text"
               name="name"
               value={inputData.name}
               onChange={handleChange}
-              placeholder="Name"
+              placeholder="الإسم"
               className="block w-full p-2 border rounded mt-1"
             />
           </label>
 
           <label className="block mb-2">
-            Job:
+           العمل : 
             <input
               type="text"
               name="job"
               value={inputData.job}
               onChange={handleChange}
-              placeholder="Job"
+              placeholder="العمل"
               className="block w-full p-2 border rounded mt-1"
             />
           </label>
 
           <label className="block mb-2">
-            City:
+            المدينة :
             <input
               type="text"
               name="city"
               value={inputData.city}
               onChange={handleChange}
-              placeholder="City"
+              placeholder="المدينة"
               className="block w-full p-2 border rounded mt-1"
             />
           </label>
 
           <label className="block mb-2">
-            Salary:
+            السعر بالساعة : 
             <input
               type="text"
               name="salary"
               value={inputData.salary}
               onChange={handleChange}
-              placeholder="Salary"
+              placeholder="السعر"
               className="block w-full p-2 border rounded mt-1"
             />
           </label>
-        
+          </form>
 
-                <div className="flex justify-end mt-4">
-                  <button
-                    type="submit"
-                    className="p-2 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"
-                  >
-                    Create
-                  </button>
-                  <button
-                    onClick={handleCloseModal}
-                    className="p-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
-                  >
-                    Close
-                  </button>
-                </div>
-              </form>
-            </div>
+          <div className="flex justify-end mt-4 space-x-4">
+            <button
+              type="submit"
+              className="p-2 bg-cyan-700 text-white rounded hover:bg-cyan-900 ml-4"
+              onClick={handleSubmit}
+            >
+              إنشاء
+            </button>
+            <button
+              onClick={handleCloseModal}
+              className="p-2 bg-gray-400 text-white rounded hover:bg-gray-700"
+            >
+              إغلاق
+            </button>
           </div>
-        </div>
-      )}
+        </motion.div>
+      </motion.div>
+    </div>
+  </div>
+)}
+
+
     </div>
   );
 }
