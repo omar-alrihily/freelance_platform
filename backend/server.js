@@ -6,16 +6,18 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const db1 = 'mongodb+srv://omar8260:u61BQavlPfcJGQEJ@cluster0.bxjnbnb.mongodb.net/my_database2';
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB Connection
-mongoose.connect('mongodb+srv://omar8260:u61BQavlPfcJGQEJ@cluster0.bxjnbnb.mongodb.net/my_database2', {
+mongoose.connect(db1, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Connected to MongoDB');
